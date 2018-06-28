@@ -1,7 +1,7 @@
 const assert = require('assert');
 const invert = require('../lib/invert-transformer');
 const grayscale = require('../lib/grayscale-transformer');
-const luminosity = require('../lib/luminosity-transformer');
+const grayscaleLuminosity = require('../lib/luminosity-transformer');
 
 describe('transformers', () => {
 
@@ -41,7 +41,7 @@ describe('transformers', () => {
     it('grayscale luminosity', () => {
         // HINT: uses luminositry formula to determine
         // the new grey value for each color 0.21 R + 0.72 G + 0.07 B
-        const transformed = luminosity({
+        const transformed = grayscaleLuminosity({
             b: 205, // 14
             g: 100, // 72
             r: 34 // 7
