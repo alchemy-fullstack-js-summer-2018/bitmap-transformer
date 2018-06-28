@@ -1,6 +1,7 @@
 const assert = require('assert');
 const invert = require('../lib/invert-transformer');
 const grayscale = require('../lib/grayscale-transformer');
+const tint = require('../lib/green-tint-transformer');
 
 describe('transformers', () => {
 
@@ -32,6 +33,22 @@ describe('transformers', () => {
             r: 113,
             g: 113,
             b: 113
+        });
+    });
+
+    it('tint', () => {
+        // HINT: invert subtracts each value from 255
+        const transformed = tint({
+            r: 34,
+            g: 100,
+            b: 205
+        });
+
+        assert.deepEqual(transformed, {
+            r: 34,
+            g: 130,
+            b: 205
+        
         });
     });
 
