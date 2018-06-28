@@ -5,5 +5,3 @@ const fs = require('fs');
 const readText = file => fs.readFileSync(file, 'utf8');
 
 
-
-
