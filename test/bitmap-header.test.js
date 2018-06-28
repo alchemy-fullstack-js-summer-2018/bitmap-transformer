@@ -1,18 +1,18 @@
 const assert = require('assert');
 const constants = require('../lib/bitmap-constants');
-// const BitmapHeader = require('../lib/bitmap-header');
+const BitmapHeader = require('../lib/bitmap-header');
 const { join } = require('path');
-const readFile = require('../lib/fs');
+const { readFile } = require('../lib/fs');
 
 
 
 describe('bitmap header', () => {
 
-    const source = join(__dirname, './test/test-bitmap.bmp');
+    const source = join(__dirname, 'test-bitmap.bmp');
+    
 
     let buffer = null;
     beforeEach(() => {
-        // TODO: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
         return readFile(source)
             .then(b => buffer = b);
     });
@@ -26,13 +26,13 @@ describe('bitmap header', () => {
         assert.ok(constants.FILE_SIZE_OFFSET);
     });
 
-    // it('parses header data', () => {
+    it('parses header data', () => {
     //     // TODO: use the constants to populate the following properties
     //     // on the BitmapHeader in its constructor.
     //     // These test values are correct for the supplied test-bitmap.bmp
-    //     const header = new BitmapHeader(buffer);
-    //     assert.equal(header.pixelOffset, 54);
-    //     assert.equal(header.bitsPerPixel, 24);
-    //     assert.equal(header.fileSize, 30054);
-    // });
+        const header = new BitmapHeader(buffer);
+        assert.equal(header.pixelOffset, 54);
+        assert.equal(header.bitsPerPixel, 24);
+        assert.equal(header.fileSize, 30054);
+    });
 });
