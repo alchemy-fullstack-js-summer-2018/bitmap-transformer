@@ -33,7 +33,7 @@ describe('bitmap file transformer', () => {
             });
 
         // If you don't have a standard file yet, or need to update or are adding new test,
-        // you can write it out by commenting above code block, and uncomment code below 
+        // you can write it out by commenting above code block, and un-comment code below 
         // that writes the file and then visually inspect the file for correctness.
 
         // return fs.writeFileSync('./test/inverted-expected.bmp', bitmap.buffer);
