@@ -13,8 +13,9 @@ describe('bitmap file transformer', () => {
         return readFile(source)
             .then(b => buffer = b);
     });
+    
     // "pinning" test, or "snapshot" test
-    it('test whole transform', () => {
+    it.skip('test whole transform', () => {
         // Use the BitmapTransformer class, 
         // passing in the buffer from the file read
         const bitmap = new BitmapTransformer(buffer);
