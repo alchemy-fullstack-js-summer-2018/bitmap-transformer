@@ -8,7 +8,6 @@ describe('transformers', () => {
     it('invert', () => {
         // HINT: invert subtracts each value from 255
         const transformed = invert({
-            
             b: 205,
             g: 100,
             r: 34
