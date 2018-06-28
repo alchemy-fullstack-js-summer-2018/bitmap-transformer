@@ -6,7 +6,7 @@ const BitmapHeader = require('../lib/bitmap-header');
 
 describe('bitmap header', () => {
     const source = join(__dirname, 'test-bitmap.bmp');
-    const expected = join(__dirname, 'inverted-expected.bmp');
+    // const expected = join(__dirname, 'inverted-expected.bmp');
 
     let buffer = null;
     beforeEach(() => {
