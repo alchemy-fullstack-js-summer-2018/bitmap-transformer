@@ -7,7 +7,9 @@ describe('bitmap file transformer', () => {
     
     let buffer = null;
     beforeEach(() => {
-        // TODO: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
+        // TODONE: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
+        return readFile('./test/test-bitmap.bmp')
+            .then(b => buffer = b);
     });
 
     // "pinning" test, or "snapshot" test
