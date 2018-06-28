@@ -8,7 +8,7 @@ const { readFile } = require('../lib/fs');
 
 describe('bitmap header', () => {
 
-    const source = join(__dirname, 'test-bitmap.bmp');
+    const source = join(__dirname, './test-bitmap.bmp');
     
 
     let buffer = null;
