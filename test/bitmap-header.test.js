@@ -9,8 +9,8 @@ describe('bitmap header', () => {
     beforeEach(() => {
         // TODONE: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
         return readFile('./test/test-bitmap.bmp')
-            .then(b => buffer = b);
-    
+            .then(b => buffer = b console.log(buffer));
+
     });
 
     it.only('has correct specs', () => {
