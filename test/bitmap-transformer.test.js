@@ -4,7 +4,7 @@ const BitmapTransformer = require('../lib/bitmap-transformer');
 const invert = require('../lib/invert-transformer');
 const { join } = require('path');
 
-describe('bitmap file transformer', () => {
+describe.only('bitmap file transformer', () => {
 
     const source = join(__dirname, 'test-bitmap.bmp');
     
@@ -31,7 +31,6 @@ describe('bitmap file transformer', () => {
         // Read the output file we saved earlier as the "standard" expected output file.
         return readFile('./test/inverted-expected.bmp')
             .then(expected => {
-                console.log(bitmap.buffer);
                 assert.deepEqual(bitmap.buffer, expected);
             });
 
