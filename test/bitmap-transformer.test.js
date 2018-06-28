@@ -1,7 +1,7 @@
 const assert = require('assert');
-const readFile = require('../lib/fs');
+const { readFile } = require('../lib/fs');
 const BitmapTransformer = require('../lib/bitmap-transformer');
-const invert = require('../lib/invert-transformer');
+const { invert } = require('../lib/invert-transformer');
 const { join } = require('path');
 
 describe('bitmap file transformer', () => {
