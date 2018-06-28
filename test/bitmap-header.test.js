@@ -13,7 +13,7 @@ describe('bitmap header', () => {
         // TODO: read the wiki spec docs to figure out what these values should be.
         // You don't need to change this test, you need to put the correct values into
         // '../lib/bitmap-constants'
-        console.log('***CONSOLE***', constants)
+        console.log('***CONSOLE***', constants.PIXEL_OFFSET)
         assert.ok(constants.PIXEL_OFFSET);
         assert.ok(constants.BITS_PER_PIXEL_OFFSET);
         assert.ok(constants.FILE_SIZE_OFFSET);
