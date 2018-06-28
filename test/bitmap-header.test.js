@@ -7,11 +7,11 @@ describe('bitmap header', () => {
 
     let buffer = null;
     beforeEach(() => {
-        readFile('./test/test-bitmap.bmp')
+        return readFile('./test/test-bitmap.bmp')
             .then(_buffer => {
-                buffer = _buffer
-                console.log(buffer);
-            })
+                buffer = _buffer;
+            });
+            
         // TODO: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
     });
 
@@ -19,12 +19,11 @@ describe('bitmap header', () => {
         // TODO: read the wiki spec docs to figure out what these values should be.
         // You don't need to change this test, you need to put the correct values into
         // '../lib/bitmap-constants'
-        console.log('***CONSOLE***', constants.PIXEL_OFFSET)
         assert.ok(constants.PIXEL_OFFSET);
         assert.ok(constants.BITS_PER_PIXEL_OFFSET);
         assert.ok(constants.FILE_SIZE_OFFSET);
     });
-
+    
     it('parses header data', () => {
         // TODO: use the constants to populate the following properties
         // on the BitmapHeader in its constructor.
