@@ -1,14 +1,21 @@
 const assert = require('assert');
+const { readFile } = require('fs').promises;
+const { join } = require('path');
 const constants = require('../lib/bitmap-constants');
 const BitmapHeader = require('../lib/bitmap-header');
 
 describe('bitmap header', () => {
+    const source = join(__dirname, 'test-bitmap.bmp');
+    const expected = join(__dirname, 'inverted-expected.bmp');
 
     let buffer = null;
     beforeEach(() => {
+        return readFile(source)
+            .then(b => buffer = b);
+
         // TODO: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
     });
-
+    
     it('has correct specs', () => {
         // TODO: read the wiki spec docs to figure out what these values should be.
         // You don't need to change this test, you need to put the correct values into
