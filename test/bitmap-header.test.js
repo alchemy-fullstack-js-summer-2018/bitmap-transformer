@@ -30,7 +30,7 @@ describe('bitmap header', () => {
         // These test values are correct for the supplied test-bitmap.bmp
         const header = new BitmapHeader(buffer);
         assert.equal(header.pixelOffset, 54);
-        assert.equal(header.bitsPerPixel, 24);
         assert.equal(header.fileSize, 30054);
+        assert.equal(header.bitsPerPixel, 24);
     });
 });
