@@ -4,18 +4,19 @@ const { readFile } = require('fs').promises;
 const invert = require('../lib/invert-transformer');
 
 describe.only('bitmap file transformer', () => {
+    const actualFile = './test-bitmap.bmp';
 
-    const source = readFile('./test-bitmap.bmp');
+    let source = null;
+    beforeEach(() => {
+        source = new StreamingBitmapTransformer('./test-bitmap.bmp');
+    });
 
     it('test whole transform', () => {
-
-        const bitmap = new StreamingBitmapTransformer(source);
-        bitmap.transform(invert);
-
-        return readFile('./test/inverted-expected.bmp')
+        return source.transform(invert, actualFile)
             .then(() => {
+                const actual = readFile(actualFile);
                 const expected = readFile('./inverted-expected.bmp');
-                assert.equal(source, expected);
+                assert.equal(actual, expected);
             });
     });
 });
