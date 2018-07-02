@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { readFile } = require('fs').promises;
+// const { readFile } = require('fs').promises;
 const { join } = require('path');
 const constants = require('../lib/bitmap-constants');
 const getBitmapHeader = require('../lib/getBitmapHeader');
