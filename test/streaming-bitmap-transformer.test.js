@@ -1,5 +1,5 @@
 const { join } = require('path');
-const StreamingBitmapTransformer = require('../lib/streaming.getBitmapTransformer');
+const StreamingBitmapTransformer = require('../lib/streaming-bitmap-transformer');
 const { unlink, readFile } = require('fs').promises;
 const { invert } = require('../lib/invert-transformer');
 const assert = require('assert');
