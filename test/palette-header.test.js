@@ -4,9 +4,9 @@ const BitmapHeader = require('../lib/bitmap-header');
 const { readFile } = require('fs').promises;
 const { join } = require('path');
 
-describe('bitmap header', () => {
+describe('palette header', () => {
 
-    const source = join(__dirname, 'test-bitmap.bmp');
+    const source = join(__dirname, 'palette-test-bitmap.bmp');
     
 
     let buffer = null;
@@ -19,12 +19,14 @@ describe('bitmap header', () => {
         assert.ok(constants.PIXEL_OFFSET);
         assert.ok(constants.BITS_PER_PIXEL_OFFSET);
         assert.ok(constants.FILE_SIZE_OFFSET);
+        assert.ok(constants.COLOR_TABLE_OFFSET);
     });
 
     it('parses header data', () => {
         const header = new BitmapHeader(buffer);
-        assert.equal(header.pixelOffset, 54);
-        assert.equal(header.bitsPerPixel, 24);
-        assert.equal(header.fileSize, 30054);
+        assert.equal(header.pixelOffset, 1078);
+        assert.equal(header.bitsPerPixel, 8);
+        assert.equal(header.fileSize, 11078);
+        assert.equal(header.colorTable, 54);
     });
 });
