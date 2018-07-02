@@ -3,7 +3,7 @@ const getBitmapHeader = require('../lib/getBitmapHeader');
 const { join } = require('path');
 
 
-describe.only('GetBitmapHeader:', () => {
+describe('GetBitmapHeader:', () => {
 
     const source = join(__dirname, 'test-bitmap.bmp');
 

@@ -4,7 +4,7 @@ const BitmapTransformer = require('../lib/bitmap-transformer');
 const { invert } = require('../lib/invert-transformer');
 const { join } = require('path');
 
-describe.only('bitmap file transformer', () => {
+describe('bitmap file transformer', () => {
 
     const source = join(__dirname, 'test-bitmap.bmp');
     
