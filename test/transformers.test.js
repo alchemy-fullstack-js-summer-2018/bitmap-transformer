@@ -42,7 +42,7 @@ describe('transformers', () => {
             g: 100,
             b: 205
         });
-
+        
         assert.deepEqual(transformed, {
             r: 113,
             g: 169,
