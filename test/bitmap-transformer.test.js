@@ -2,7 +2,7 @@ const assert = require('assert');
 const { readFile, writeFile } = require('fs').promises;
 const BitmapTransformer = require('../lib/bitmap-transformer');
 const  { invert } = require('../lib/invert-transformer');
-const { grayscale } = require('../lib/grayscale-transformer');
+const { greenify } = require('../lib/greenify-transformer');
 const { join } = require('path');
 
 describe('bitmap file transformer', () => {
@@ -27,11 +27,14 @@ describe('bitmap file transformer', () => {
                 assert.deepEqual(bitmap.buffer, expected);
             });
     });
-    it('test GRAYSCALE transform', () => {
+
+    it('test greenify transform', () => {
         const bitmap = new BitmapTransformer(buffer);
-        bitmap.transform(grayscale);
-        writeFile('./test/grayscale-expected.bmp', bitmap.buffer);
-        return readFile('./test/grayscale-expected.bmp')
+
+        bitmap.transform(greenify);
+
+        
+        return readFile('./test/grenify-expected.bmp')
             .then(expected => {
                 assert.deepEqual(bitmap.buffer, expected);
                 
