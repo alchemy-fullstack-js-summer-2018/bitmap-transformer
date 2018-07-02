@@ -1,36 +1,29 @@
 const assert = require('assert');
+const { join } = require('path');
 const StreamingBitmapTransformer = require('../lib/stream-transformer');
-// const getBitmapHeader = require('../lib/getBitmapHeader');
 const invert = require('../lib/invert-transformer');
-// const { readFile } = require('fs').promises;
-// const invert = require('../lib/invert-transformer');
+const { unlink, readFile } = require('fs').promises;
 
 describe('bitmap file transformer', () => {
-    const actualFile = 'test-bitmap.bmp';    
-    // beforeEach(() => {
-    //     source = new StreamingBitmapTransformer(actualFile, getBitmapHeader(actualFile)
-    //         .catch(err => {
-    //             if(err.code !== 'ENOENT') throw err;
-    //         })
-    //         .then(result => console.log(result))
-    //     );
-    // });
+    const source = join(__dirname, 'test-bitmap.bmp');
+    const inverted = './test/inverted-bitmap.bmp';
+    beforeEach(() => {
+        return unlink(inverted)
+            .catch(err => {
+                if(err.code !== 'ENOENT') throw err;
+            });
+    });
 
 
     it('runs the transform function', () => {
-        return StreamingBitmapTransformer.create(actualFile)
-            .catch(err => {
-                if(err.code !== 'ENOENT') throw err;
-            })
+        StreamingBitmapTransformer.create(source)
             .then(bitmapTransformer => {
-                return bitmapTransformer.transform(invert, actualFile)
-                    .then(result => console.log(result));
+                return bitmapTransformer.transform(invert, inverted)
+                    .then(() => {
+                        const actual = readFile(inverted);
+                        const expected = readFile('./test/inverted-bitmap.bmp');
+                        assert.deepEqual(actual, expected);
+                    });
             });
-        // return source.transform(invert, actualFile)
-        //     .then(() => {
-        //         const actual = actualFile;
-        //         const expected = './inverted-expected.bmp';
-        //         assert.equal(actual, expected);
-        //     });
     });
 });
