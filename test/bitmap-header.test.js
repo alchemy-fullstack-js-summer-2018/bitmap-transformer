@@ -1,5 +1,4 @@
 const assert = require('assert');
-// const { readFile } = require('fs').promises;
 const { join } = require('path');
 const constants = require('../lib/bitmap-constants');
 const getBitmapHeader = require('../lib/getBitmapHeader');
@@ -7,12 +6,6 @@ const getBitmapHeader = require('../lib/getBitmapHeader');
 describe('bitmap header', () => {
     const source = join(__dirname, 'test-bitmap.bmp');
 
-  
-    // beforeEach(() => {
-    //     return readFile(source)
-    //         .then(b => buffer = b);
-    // });
-    
     it('has correct specs', () => {
         assert.ok(constants.PIXEL_OFFSET);
         assert.ok(constants.BITS_PER_PIXEL_OFFSET);
