@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "npm run test:mocha",
-    "test:mocha": "mocha test/transformers.test.js",
+    "test:mocha": "mocha test/bitmap-transformer.test.js",
     "start": "npm run test:mocha -- -w"
   },
   "repository": {
