@@ -1,4 +1,5 @@
 const getBitmapHeader = require('../lib/get-bitmap-header');
+const assert = require('assert');
 
 describe('get bitmap header', () => {
 

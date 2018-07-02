@@ -1,6 +1,6 @@
 const assert = require('assert');
 const constants = require('../lib/bitmap-constants');
-const BitmapHeader = require('../lib/bitmap-header');
+const getBitmapHeader = require('../lib/bitmap-header');
 const { readFile } = require('fs').promises;
 
 describe('bitmap header', () => {
@@ -28,7 +28,7 @@ describe('bitmap header', () => {
         // TODO: use the constants to populate the following properties
         // on the BitmapHeader in its constructor.
         // These test values are correct for the supplied test-bitmap.bmp
-        const header = new BitmapHeader(buffer);
+        const header = getBitmapHeader(buffer);
         assert.equal(header.pixelOffset, 54);
         assert.equal(header.fileSize, 30054);
         assert.equal(header.bitsPerPixel, 24);
