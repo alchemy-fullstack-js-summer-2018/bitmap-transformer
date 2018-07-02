@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { readFile, writeFile } = require('fs').promises;
+const { readFile } = require('fs').promises;
 const BitmapTransformer = require('../lib/bitmap-transformer');
 const  { invert } = require('../lib/invert-transformer');
 const { greenify } = require('../lib/greenify-transformer');
