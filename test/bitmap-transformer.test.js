@@ -1,12 +1,17 @@
 const assert = require('assert');
 const { readFile } = require('fs').promises;
 const BitmapTransformer = require('../lib/bitmap-transformer');
-const invert = require('../lib/invert-transform');
+const invert = require('../lib/invert-transformer');
 
 describe('bitmap file transformer', () => {
     
     let buffer = null;
     beforeEach(() => {
+        return readFile('./test/test-bitmap.bmp')
+            .then(_buffer => {
+                buffer = _buffer;
+            });
+            
         // TODO: file read './test/test-bitmap.bmp' and put the promise return into buffer variable
     });
 
