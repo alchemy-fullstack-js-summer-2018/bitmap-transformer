@@ -1,6 +1,6 @@
-Lab 4 - Bitmap Transformer
+Lab 4.5 - Streaming Bitmap Transformer
 ===
-This is a lab assignment for creating a simple bitmap transformer that can take in a BMP image and apply some sort of color transformation to each pixel of the image (i.e. make the image black and white, invert the colors of the image, etc.).
+This is a lab assignment that is built upon an earlier version (Lab 4) for creating a streaming bitmap transformer that can take in a BMP image (as a stream) and apply some sort of color transformation to each pixel of the image (i.e. make the image black and white, invert the colors of the image, etc.).
 
 ## Get Started
 1. Fork and clone the repo.
