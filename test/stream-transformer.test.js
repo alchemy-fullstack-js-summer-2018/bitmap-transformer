@@ -14,15 +14,15 @@ describe('bitmap file transformer', () => {
             });
     });
 
-
-    it('runs the transform function', () => {
-        StreamingBitmapTransformer.create(source)
+    it('runs the invert transformation function', () => {
+        return StreamingBitmapTransformer.create(source)
             .then(bitmapTransformer => {
                 return bitmapTransformer.transform(invert, inverted)
-                    .then(() => {
+                    .then(async() => {
                         const actual = readFile(inverted);
                         const expected = readFile('./test/inverted-bitmap.bmp');
                         assert.deepEqual(actual, expected);
+                        console.log(await actual);
                     });
             });
     });
