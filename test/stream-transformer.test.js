@@ -2,7 +2,9 @@ const assert = require('assert');
 const { join } = require('path');
 const StreamingBitmapTransformer = require('../lib/stream-transformer');
 const invert = require('../lib/invert-transformer');
-const { unlink, readFile } = require('fs').promises;
+const { unlink } = require('fs').promises;
+const fs = require('fs');
+const readFile = file => fs.readFileSync(file);
 
 describe('bitmap file transformer', () => {
     const source = join(__dirname, 'test-bitmap.bmp');
@@ -18,11 +20,10 @@ describe('bitmap file transformer', () => {
         return StreamingBitmapTransformer.create(source)
             .then(bitmapTransformer => {
                 return bitmapTransformer.transform(invert, inverted)
-                    .then(async() => {
+                    .then(() => {
                         const actual = readFile(inverted);
                         const expected = readFile('./test/inverted-bitmap.bmp');
                         assert.deepEqual(actual, expected);
-                        console.log(await actual);
                     });
             });
     });
